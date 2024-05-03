@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier Ice Cream shop</title>
+    <link rel = "icon" type="image/x-icon" href ="images/photo.png">
+
+    <style >
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #white;
+        }
+        header {
+            background-color: #FFCBCB;
+            padding: 1px 0;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #E9EDC9;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+        nav a:hover{
+
+            background-color: #CCD5AE ;
+        }
+        .containerr {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: url("bg.jpg");
+        }
+        .picture {
+            width: 11%; /* Adjust width as needed */
+            margin: 5px;
+            float: left;
+            text-align: center;
+        }
+        .clearfix {
+             clear: both;
+        }
+        .picture img {
+
+            width: 60%; /* Make images fill their containers */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .containerrec {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/photo.png">
+        <h1>Delicious Ice Cream Since</h1>
+        <h4>HEAVEN'S ICE CREAM SHOP</h4>
+    </header>
+   
+  
+  <table>
+    <tr>
+        <td>
+            <div class="Ice Cream">
+    <div class="picture">
+  <img src="images/ourmenu1.jpg" alt="Image 1">
+  <button onclick="addItem('Cookies Cream (Cookies Cream #1)', 100)">(Cookies Cream  #1) - ₱100</button>
+</div>
+
+<div class="picture">
+  <img src="images/ourmenu2.jpg" alt="Image 2">
+  <button onclick="addItem('Milk Chocolate Chip (Milk Chocolate Chip #2)', 100)">(Milk Chocolate Chip #2) - ₱100</button>
+</div>
+
+<div class="picture">
+  <img src="images/ourmenu3.jpg" alt="Image 3">
+  <button onclick="addItem('Blueberry Ice Cream (Blueberry Ice Cream #3)', 120)">(Blueberry Ice Cream #3) - ₱120</button>
+</div>
+
+<div class="picture">
+  <img src="images/ourmenu4.jpg" alt="Image 4">
+  <button onclick="addItem('Regan Chunky Monkey Ice Cream (Regan Chunky Monkey Ice Cream #4)', 120)">(Regan Chunky Monkey Ice Cream #4) - ₱120</button>
+  </div>
+
+<div class="picture">
+  <img src="images/ourmenu5.jpg" alt="Image 5">
+  <button onclick="addItem('Chocolate Olive Oil Shell (Chocolate Olive Oil Shell #5)', 120)">(Chocolate Olive Oil Shell #5) - ₱120</button>
+</div>
+
+<div class="picture">
+  <img src="images/ourmenu6.jpg" alt="Image 6">
+  <button onclick="addItem('Chocolate Covered Strawberry (Chocolate Covered Strawberry  #6)', 120)">(Chocolate Covered Strawberry  #6) - ₱120</button>
+</div>
+
+<div class="picture">
+  <img src="images/review 1.jpg" alt="Image 7">
+  <button onclick="addItem('Earl Grey chocolate ice cream (Earl Grey chocolate ice cream #7)', 110)">(Earl Grey chocolate ice cream #7) - ₱110</button>
+</div>
+
+<div class="picture">
+  <img src="images/review 2.jpg" alt="Image 8">
+  <button onclick="addItem('Mixed Berry and Banana Pound Cake Ice Cream (Mixed Berry and Banana Pound Cake Ice Cream #8)', 110)">(Mixed Berry and Banana Pound Cake Ice Cream#1) - ₱110</button>
+</div>
+
+<div class="picture">
+  <img src="images/service-3.jpg" alt="Image 9">
+  <button onclick="addItem('Mulberry crumble ice cream(Mulberry crumble ice cream #9)', 110)">(Mulberry crumble ice cream#9) - ₱110</button>
+</div>
+<div class="containerrec">
+  <h2>Receipt</h2>
+  <ul id="receipt"></ul>
+  <p>Total: ₱<span id="total">0</span></p>
+  <button onclick="checkout()">Checkout</button>
+</div>
+</center>
+<script>
+  let cart = [];
+  
+  function addItem(name, price) {
+    cart.push({name, price});
+    displayCart();
+  }
+  
+  function displayCart() {
+    const receipt = document.getElementById('receipt');
+    const totalSpan = document.getElementById('total');
+    receipt.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${item.name} - ₱${item.price}`;
+      receipt.appendChild(listItem);
+      total += item.price;
+    });
+    totalSpan.textContent = total;
+  }
+  
+  function checkout() {
+    alert('Thank you for your purchase!');
+    cart = [];
+    displayCart();
+  }
+</script>
+  
+      
+</body>
+</html>

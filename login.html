@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<link rel="icon" type="image/x-icon" href="images/photo.png">
+<style>
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial;
+    font-size: 100%;
+      min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:url(images/photo1.jpg);
+  }
+  
+  form {
+    width: 20%;
+    padding: 20px;
+    border: 3px #31363F;
+    border-radius: 8px;
+    background-color: #FFB1B1;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  input[type="submit"]{
+    background-color: #BB8493;
+    color: white;
+    cursor: pointer;
+  }
+  input[type="button"]{
+    background-color: #BB8493;
+    color: white;
+    cursor: pointer;
+  }
+  #Logo{
+    height: 100px;
+    width: 100px;
+    position: relative;
+        top: 1px;
+        left: 180px;}
+  }
+</style>
+<script>
+    function validateLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Add your authentication logic here
+      if (username === "creamy"&& password === "Admin1234") {
+        window.location.href = "Creamy.html";
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+
+    function resetForm(){
+      document.getElementById("loginForm").reset();
+    }
+</script>
+</head>
+<body>
+
+
+<form id="loginForm" onsubmit="event.preventDefault(); validateLogin()">
+  <img src="images/photo.png" id="Logo">
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required><br>
+
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required><br>
+
+<input type="submit" value="Login">
+<input type="button" value="Reset"
+onclick="resetForm()">
+</form>
+
+</body>
+</html>
